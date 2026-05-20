@@ -1,0 +1,24 @@
+version: 1
+issued: 2026-05-20
+
+mandatory_reads:
+  - .agents/context/agents-rules.json
+  - .agents/context/project-index.yaml
+
+categories:
+  methodology:
+    description: 한국어 voice 평가 methodology (degen/d3/leak/trunc/cer/TTFP)
+  toolkit:
+    description: OSS evaluation toolkit (metrics.py, transcribe.py, report.py, run_baseline.py)
+  seed_data:
+    description: KO eval seed prompts + ref_audio (vendor-friendly)
+  vendor_baselines:
+    description: VoxCPM2 KO 30 prompts baseline (vendor 협업)
+  paradigm:
+    description: "검증된 외부 base + 우리 스택" paradigm 글
+  guides:
+    description: voice cascade 결합 가이드 (LiveKit ↔ ko-serve etc.)
+
+mirror_strategy:
+  default: en (primary)
+  additional: [ko]

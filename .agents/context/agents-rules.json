@@ -1,0 +1,22 @@
+{
+  "project": "naia-research",
+  "visibility": "public",
+  "license": "Apache-2.0 (code) + CC-BY-SA-4.0 (context)",
+  "role": "naia public OSS — methodology + toolkit + paradigm + vendor baselines",
+  "default_lang": "en",
+  "mirror": "triple",
+  "structure_standard": "alpha-adk/.agents/context/repo-structure-standard.yaml",
+  "mandatory_reads_per_session": [
+    ".agents/context/agents-rules.json",
+    ".agents/context/project-index.yaml"
+  ],
+  "categories": {
+    "methodology": "metric 정의 + 측정 절차 + paradigm 글",
+    "toolkit": "metrics.py / transcribe.py / report.py / run_baseline.py — OSS toolkit",
+    "seed_data": "KO eval seed prompts + ref_audio (vendor-friendly)",
+    "vendor_baselines": "VoxCPM2 KO 30 prompts (vendor-friendly협업)",
+    "paradigm": "검증 외부 base + 우리 스택 paradigm 글",
+    "guides": "LiveKit ↔ ko-serve voice cascade pattern OSS guide"
+  },
+  "promote_source": "nextain/naia-labs/promote_to_naia_research/"
+}

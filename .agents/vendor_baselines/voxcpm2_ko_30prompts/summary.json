@@ -1,0 +1,8 @@
+{
+  "n": 30,
+  "cer_median": 0.0,
+  "cer_mean": 0.1072,
+  "pass_rate_le_0.30": 0.867,
+  "ref": "/var/home/luke/alpha-adk/projects/naia-minicpm-ko-serve/assets/ref_audio/ref_ko_485.wav",
+  "compare_baseline": "Phase18 27.66h Talker: median CER 0.138, pass 83.3% (ko-flow)"
+}

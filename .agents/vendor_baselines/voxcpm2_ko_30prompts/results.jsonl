@@ -1,0 +1,30 @@
+{"id": "minimal_pair_01", "bucket": "minimal_pair", "text": "가다와 까다 발음 차이를 한 번씩 짚어 주세요.", "whisper": "가다와 까다 발음 차이를 한 번씩 짚어주세요.", "cer": 0.0, "gen_s": 37.0, "audio_s": 2.6}
+{"id": "minimal_pair_02", "bucket": "minimal_pair", "text": "달과 딸의 차이를 알려 주세요.", "whisper": "달과 딸의 차이를 알려주세요.", "cer": 0.0, "gen_s": 1.5, "audio_s": 2.1}
+{"id": "minimal_pair_03", "bucket": "minimal_pair", "text": "사다와 싸다는 의미가 어떻게 다른가요?", "whisper": "사다와 싸다는 의미가 어떻게 다른가요?", "cer": 0.0, "gen_s": 1.9, "audio_s": 2.9}
+{"id": "vowel_01", "bucket": "vowel", "text": "어머니와 으뜸의 첫 글자 모음을 비교해 주세요.", "whisper": "어머니와 으뜸의 첫 글자 모음을 비교해주세요.", "cer": 0.0, "gen_s": 1.8, "audio_s": 2.7}
+{"id": "vowel_02", "bucket": "vowel", "text": "오늘 점심 우리 어디로 갈까요?", "whisper": "오늘 점심 우리 어디로 갈까요?", "cer": 0.0, "gen_s": 1.5, "audio_s": 2.1}
+{"id": "vowel_03", "bucket": "vowel", "text": "음악을 들으면 기분이 어떠세요?", "whisper": "음악을 들으면 기분이 어떠세요?", "cer": 0.0, "gen_s": 1.6, "audio_s": 2.2}
+{"id": "numeral_01", "bucket": "numeral", "text": "지금 시각이 두 시 삼십 분이에요.", "whisper": "지금 시각이 2시 30분이에요.", "cer": 0.2143, "gen_s": 1.6, "audio_s": 2.2}
+{"id": "numeral_02", "bucket": "numeral", "text": "사과 세 개와 배 다섯 개 주문할게요.", "whisper": "사과 3개와 배 5개 주문할게요.", "cer": 0.2, "gen_s": 1.8, "audio_s": 2.6}
+{"id": "numeral_03", "bucket": "numeral", "text": "오늘 날짜가 이천이십육년 사월 이십구일이에요.", "whisper": "오늘 날짜가 2026년 4월 29일이에요.", "cer": 0.4286, "gen_s": 2.3, "audio_s": 3.7}
+{"id": "loanword_01", "bucket": "loanword", "text": "AI 기술이 정말 빠르게 발전하고 있죠.", "whisper": "AI 기술이 정말 빠르게 발전하고 있죠.", "cer": 0.0, "gen_s": 1.9, "audio_s": 2.9}
+{"id": "loanword_02", "bucket": "loanword", "text": "USB 메모리에 파일을 저장했어요.", "whisper": "USB 메모리에 파일을 저장했어요.", "cer": 0.0, "gen_s": 1.7, "audio_s": 2.6}
+{"id": "loanword_03", "bucket": "loanword", "text": "RTX 3090 GPU 두 개로 학습 중이에요.", "whisper": "RTX 3090 GPU 두 개로 학습 중이에요.", "cer": 0.0, "gen_s": 2.5, "audio_s": 4.0}
+{"id": "mixed_script_01", "bucket": "mixed_script", "text": "오늘 GPU 사용률은 30 퍼센트 정도예요.", "whisper": "오늘 GPU 사용률은 30% 정도예요 안지포크를 세타가 빨리 예민해", "cer": 0.8421, "gen_s": 3.5, "audio_s": 6.1}
+{"id": "mixed_script_02", "bucket": "mixed_script", "text": "MiniCPM-o 모델을 한국어로 학습 중이에요.", "whisper": "유닛GPMO 모델을 한국어로 학습 중이에요.", "cer": 0.3043, "gen_s": 1.6, "audio_s": 2.2}
+{"id": "proper_noun_01", "bucket": "proper_noun", "text": "강남역에서 두 시에 만나요.", "whisper": "강남역에서 두시에 만나요", "cer": 0.0833, "gen_s": 1.4, "audio_s": 1.8}
+{"id": "proper_noun_02", "bucket": "proper_noun", "text": "청계천 산책 좋아하세요?", "whisper": "청계천 산책 좋아하세요?", "cer": 0.0, "gen_s": 1.7, "audio_s": 2.4}
+{"id": "proper_noun_03", "bucket": "proper_noun", "text": "광화문 광장에 가본 적 있나요?", "whisper": "광화문 광장에 가본 적 있나요?", "cer": 0.0, "gen_s": 1.4, "audio_s": 1.8}
+{"id": "breath_group_01", "bucket": "breath_group", "text": "오늘은 날씨가 정말 좋아서 친구들과 한강에서 자전거를 타고 강변을 따라 달렸어요.", "whisper": "오늘은 날씨가 정말 좋아서 친구들과 한강에서 자전거를 타고 강변을 따라 달렸어요.", "cer": 0.0, "gen_s": 3.7, "audio_s": 6.4}
+{"id": "breath_group_02", "bucket": "breath_group", "text": "한국어 음성 합성은 음소와 운율, 화자 특성이 모두 자연스럽게 어우러져야 좋은 결과를 만들 수 있어요.", "whisper": "한국어 음성합성은 음소와 운율, 화자 특성이 모두 자연스럽게 어우러져야 좋은 결과를 만들 수 있어요.", "cer": 0.0, "gen_s": 4.0, "audio_s": 7.0}
+{"id": "short_answer_01", "bucket": "short_answer", "text": "오늘 점심 같이 먹을래요?", "whisper": "오늘 점심 같이 먹을래요?", "cer": 0.0, "gen_s": 1.4, "audio_s": 1.9}
+{"id": "short_answer_02", "bucket": "short_answer", "text": "지금 시간 괜찮으세요?", "whisper": "지금 시간 괜찮으세요?", "cer": 0.0, "gen_s": 1.3, "audio_s": 1.6}
+{"id": "short_answer_03", "bucket": "short_answer", "text": "도움이 필요하세요?", "whisper": "다음 영상에서 만나요", "cer": 1.0, "gen_s": 1.3, "audio_s": 1.6}
+{"id": "baseline_01", "bucket": "baseline", "text": "안녕하세요. 오늘 날씨가 어때요?", "whisper": "안녕하세요. 오늘 날씨가 어때요?", "cer": 0.0, "gen_s": 1.6, "audio_s": 2.2}
+{"id": "baseline_02", "bucket": "baseline", "text": "자기소개를 해주세요.", "whisper": "자기소개를 해주세요.", "cer": 0.0, "gen_s": 1.3, "audio_s": 1.8}
+{"id": "baseline_03", "bucket": "baseline", "text": "지금 몇 시예요?", "whisper": "지금 몇 시에요?", "cer": 0.1429, "gen_s": 1.0, "audio_s": 1.1}
+{"id": "baseline_04", "bucket": "baseline", "text": "한국에서 가장 높은 산은 무엇인가요?", "whisper": "한국에서 가장 높은 산은 무엇인가요?", "cer": 0.0, "gen_s": 1.6, "audio_s": 2.2}
+{"id": "baseline_05", "bucket": "baseline", "text": "주말에 보통 뭐 하세요?", "whisper": "주말에 보통 뭐하세요?", "cer": 0.0, "gen_s": 1.3, "audio_s": 1.6}
+{"id": "baseline_06", "bucket": "baseline", "text": "한국어와 영어 중 어느 쪽이 더 어려운가요?", "whisper": "한국어와 영어 중 어느 쪽이 더 어려운가요?", "cer": 0.0, "gen_s": 1.9, "audio_s": 2.9}
+{"id": "baseline_07", "bucket": "baseline", "text": "커피와 차 중에 무엇을 더 좋아하세요?", "whisper": "커피와 차 중에 무엇을 더 좋아하세요?", "cer": 0.0, "gen_s": 1.8, "audio_s": 2.6}
+{"id": "baseline_08", "bucket": "baseline", "text": "최근 본 영화 중 추천할 만한 게 있나요?", "whisper": "최근 본 영화 중 추천할 만한 게 있나요?", "cer": 0.0, "gen_s": 1.8, "audio_s": 2.7}

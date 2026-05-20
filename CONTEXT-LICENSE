@@ -1,0 +1,15 @@
+Context License — Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+The contents of `.agents/{methodology, paradigm, guides}/` and `.users/` directories
+are licensed under CC BY-SA 4.0:
+  https://creativecommons.org/licenses/by-sa/4.0/
+
+You are free to:
+  - Share — copy and redistribute the material in any medium or format
+  - Adapt — remix, transform, and build upon the material for any purpose
+
+Under the following terms:
+  - Attribution — credit "Naia research (nextain/naia-research)"
+  - ShareAlike — distribute derivatives under the same license
+
+Code in `.agents/toolkit/` and other code areas is under Apache 2.0 (see LICENSE).
