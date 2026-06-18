@@ -10,6 +10,7 @@ Public OSS for Korean voice cascade evaluation — methodology, toolkit, paradig
 | `vendor_baselines/` | VoxCPM2 Korean 30-prompt baseline (CER 0.000) |
 | `paradigm/` | "Verified external base + our stack differentiation" — Naia's voice paradigm |
 | `guides/` | Integration guides: LiveKit ↔ ko-serve voice cascade pattern |
+| **`model/fine-tuning/deadpool-lora-demo/`** | **🎭 LLM 자유 교체 데모 — Qwen3에 캐릭터(데드풀)를 LoRA로 입혀 naia-omni에 올리는 전 과정 재현 키트 (스크립트·샘플데이터·페르소나·교체법). [바로가기](model/fine-tuning/deadpool-lora-demo/README.md)** |
 
 ## Quick Start
 
