@@ -1,4 +1,4 @@
-"""Markdown report + 청취 wav archive 생성.
+"""Markdown report 생성 (per-case 표 + 있으면 생성 wav 링크).
 
 Usage:
     python report.py \
@@ -52,12 +52,12 @@ def render_single(run_label: str, metrics: dict, meta: dict, run_dir: Path) -> s
     out.append(f"| turn_completion_rate    | {fmt_pct(agg['turn_completion_rate'])} |")
     out.append(f"| lang_leak_rate (mean)   | {fmt_pct(agg['lang_leak_rate'])} |")
     out.append(f"| lang_leak_rate (p95)    | {fmt_pct(agg['lang_leak_rate_p95'])} |")
-    out.append(f"| ttfp_ms p50 / p95       | {fmt_num(agg['ttfp_ms_p50'])} / {fmt_num(agg['ttfp_ms_p95'])} |")
-    cer_p50 = agg.get("audio_text_cer_p50")
-    cer_p95 = agg.get("audio_text_cer_p95")
-    out.append(f"| audio_text_cer p50/p95  | {fmt_num(cer_p50, 3)} / {fmt_num(cer_p95, 3)} |")
+    out.append(f"| audio_TTFP_ms p50 / p95 | {fmt_num(agg.get('audio_TTFP_ms_p50'))} / {fmt_num(agg.get('audio_TTFP_ms_p95'))} |")
+    cer_p50 = agg.get("tts_quality_cer_p50")
+    cer_p95 = agg.get("tts_quality_cer_p95")
+    out.append(f"| tts_quality_cer p50/p95 | {fmt_num(cer_p50, 3)} / {fmt_num(cer_p95, 3)} |")
     out.append("")
-    out.append(f"*ttfp note: {agg.get('ttfp_ms_p50_note', '')}*")
+    out.append(f"*ttfp note: {agg.get('ttfp_note', '')}*")
     out.append("")
 
     if per_persona:
@@ -69,7 +69,7 @@ def render_single(run_label: str, metrics: dict, meta: dict, run_dir: Path) -> s
             out.append(
                 f"| {p} | {m['n']} | {fmt_pct(m['empty_rate'])} | "
                 f"{fmt_pct(m['truncation_rate'])} | {fmt_pct(m['turn_completion_rate'])} | "
-                f"{fmt_pct(m['lang_leak_rate_mean'])} | {fmt_num(m.get('audio_text_cer_p50'), 3)} |"
+                f"{fmt_pct(m['lang_leak_rate_mean'])} | {fmt_num(m.get('tts_quality_cer_p50'), 3)} |"
             )
         out.append("")
 
@@ -112,9 +112,9 @@ def render_compare(runs: list[tuple[str, dict, dict]]) -> str:
         ("truncation_rate", "trunc %", lambda v: fmt_pct(v)),
         ("turn_completion_rate", "complete %", lambda v: fmt_pct(v)),
         ("lang_leak_rate", "leak %", lambda v: fmt_pct(v)),
-        ("ttfp_ms_p50", "ttfp p50 ms", lambda v: fmt_num(v)),
-        ("ttfp_ms_p95", "ttfp p95 ms", lambda v: fmt_num(v)),
-        ("audio_text_cer_p50", "cer p50", lambda v: fmt_num(v, 3)),
+        ("audio_TTFP_ms_p50", "ttfp p50 ms", lambda v: fmt_num(v)),
+        ("audio_TTFP_ms_p95", "ttfp p95 ms", lambda v: fmt_num(v)),
+        ("tts_quality_cer_p50", "cer p50", lambda v: fmt_num(v, 3)),
     ]
     header = "| metric | " + " | ".join(r[0] for r in runs) + " |"
     sep = "|" + "---|" * (len(runs) + 1)

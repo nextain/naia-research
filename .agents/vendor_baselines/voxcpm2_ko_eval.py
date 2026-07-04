@@ -1,23 +1,28 @@
-"""VoxCPM2 한국어 quality 비교 — ko-flow TEST_CASES 동일 텍스트 → CER.
+"""VoxCPM2 한국어 quality 비교 — 동봉 seed TEST_CASES 동일 텍스트 → CER.
 
-공정 비교: Phase18 Talker 와 동일 ref 음색(ref_ko_485.wav) clone + 동일 한국어
-텍스트 → VoxCPM2 합성 → faster-whisper KO transcribe → CER(입력텍스트, transcript).
+공정 비교: 27.66h fine-tune Talker 와 동일 ref 음색(ref_ko_485.wav) clone + 동일
+한국어 텍스트 → VoxCPM2 합성 → faster-whisper KO transcribe → CER(입력텍스트, transcript).
 
-Usage (dry-run 완료 후):
-    .venv/bin/python vox_ko_eval.py \
-        --ref /var/home/luke/.../assets/ref_audio/ref_ko_485.wav \
+프롬프트 출처는 이 repo 에 동봉된 seed(`.agents/seed_data/ko_eval_seed.py`)의
+한국어 stress-bucket 케이스(minimal_pair/vowel/numeral/loanword/proper_noun 등, ko 30건)다.
+
+Usage (VoxCPM2 + faster-whisper + CUDA GPU 필요):
+    python voxcpm2_ko_eval.py \
+        --ref ../seed_data/ref_ko_485.wav \
         --out vox_ko_eval_out
+    # 다른 프롬프트 세트를 쓰려면 --seed <TEST_CASES 를 정의한 .py>
 """
 from __future__ import annotations
 import argparse, json, re, statistics, time
 from pathlib import Path
 
-KOFLOW_EVAL = Path("/var/home/luke/alpha-adk/projects/minicpm-o-4_5-ko-flow/tools/eval_omni_voice.py")
+# repo 동봉 seed. TEST_CASES 를 정의한 어떤 .py 로도 --seed 로 교체 가능.
+DEFAULT_SEED = Path(__file__).resolve().parent.parent / "seed_data" / "ko_eval_seed.py"
 
 
-def load_testcases() -> list[dict]:
-    """eval_omni_voice.py 의 TEST_CASES 를 numpy import 없이 추출 (텍스트만)."""
-    src = KOFLOW_EVAL.read_text()
+def load_testcases(seed_path: Path) -> list[dict]:
+    """seed 파일의 TEST_CASES 를 numpy import 없이 추출 (텍스트만)."""
+    src = seed_path.read_text()
     m = re.search(r"TEST_CASES\s*=\s*\[", src)
     if not m:
         raise RuntimeError("TEST_CASES 못 찾음")
@@ -55,15 +60,17 @@ def cer(ref: str, hyp: str) -> float:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ref", required=True, help="ref voice wav (Phase18 동일 음색)")
+    ap.add_argument("--ref", required=True, help="ref voice wav (비교 대상과 동일 음색)")
     ap.add_argument("--out", default="vox_ko_eval_out")
     ap.add_argument("--whisper", default="large-v3-turbo")
+    ap.add_argument("--seed", type=Path, default=DEFAULT_SEED,
+                    help="TEST_CASES 를 정의한 seed .py (기본=동봉 ko_eval_seed.py)")
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(exist_ok=True)
     (out / "wav").mkdir(exist_ok=True)
 
-    cases = load_testcases()
+    cases = load_testcases(args.seed)
     print(f"ko TEST_CASES: {len(cases)}")
 
     import numpy as np, soundfile as sf

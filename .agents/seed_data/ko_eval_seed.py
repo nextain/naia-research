@@ -8,8 +8,8 @@ Designed for:
   • A/B compare across models (--compare)
   • per-bucket pass rate (failures localized to specific stress categories)
 
-Usage (from minicpm-o-4_5-ko-flow root, distrobox vllm-dev):
-  source /home/luke/.venvs/vllm-omni/bin/activate
+Usage (from the eval harness root, inside your serving venv):
+  source <your-venv>/bin/activate
   # Full 32-case eval
   python tools/eval_omni_voice.py --output_dir /tmp/eval_phase7a --label phase7a
   # Quick 9-case eval (per-epoch)

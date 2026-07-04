@@ -1,43 +1,58 @@
 # naia-research
 
-naia public OSS — Korean voice cascade evaluation methodology, toolkit, paradigm, vendor-friendly baselines.
+Public OSS slice of naia's Korean voice cascade work: an evaluation toolkit, a
+Korean evaluation seed, one reproducible VoxCPM2 baseline, and an LLM-swap
+fine-tuning demo. Promoted from the private naia-labs R&D repo.
 
-Korean mirror: `.users/ko/context/entry-point.md`
+Human-facing entry: [README.md](README.md).
+Korean mirror: `.users/ko/context/entry-point.md`.
 
-## Mandatory Reads (every session start)
+## Mandatory reads (every session start)
 
 1. `.agents/context/agents-rules.json` — Project rules (SoT)
 2. `.agents/context/project-index.yaml` — Index
 
-## Project Structure
+## Project structure
+
+Only directories with real content exist. `methodology/`, `paradigm/`, and
+`guides/` are on the roadmap (see README) and are intentionally absent until
+there is content to publish — do not describe them as if they ship today.
 
 ```
-.agents/                      # AI SoT (English, JSON/YAML)
-├── context/                  # Rules + index
-├── methodology/              # metric 정의 (degen/d3/leak/cer/TTFP)
-├── toolkit/                  # metrics.py, transcribe.py, report.py, run_baseline.py
-├── seed_data/                # KO eval seed prompts + ref_audio
-├── vendor_baselines/         # VoxCPM2 KO 30 prompts (vendor 협업)
-├── paradigm/                 # "검증된 외부 base + 우리 스택" paradigm 글
-└── guides/                   # LiveKit ↔ ko-serve voice cascade pattern
+.agents/                     # AI SoT (English, JSON/YAML)
+├── context/                 # Rules + index
+├── toolkit/                 # metrics.py, transcribe.py, report.py, run_baseline.py
+├── seed_data/               # stress-test seed (ko_eval_seed.py, 30 ko) + cascade-input clips (ko_input_wavs/, 30) + reference audio
+└── vendor_baselines/        # VoxCPM2 KO baseline over the stress-test seed (eval script reads the shipped seed; wavs, results, summary)
 
-.users/                       # Human mirror
-├── en/                       # English (primary)
-└── ko/                       # Korean
+model/
+└── fine-tuning/
+    └── deadpool-lora-demo/  # LoRA persona training → export → load into Naia Omni
+
+.users/                      # Human mirror
+├── en/                      # English (primary)
+└── ko/                      # Korean
 ```
+
+Note: `run_baseline.py` imports `bridge_gemini_minicpm`, which lives in the
+private serving stack and is not shipped here. It is a reference for how our
+baselines are generated, not a standalone script.
 
 ## License
 
-- **Code** (`.agents/toolkit/`, etc.): Apache 2.0 (see `LICENSE`)
-- **Context** (`.agents/{methodology,paradigm,guides}/`, `.users/`): CC-BY-SA 4.0 (see `CONTEXT-LICENSE`)
+- **Code** (`.agents/toolkit/`, `model/`, etc.): Apache 2.0 (see `LICENSE`)
+- **Docs and evaluation data** (`.users/`, seed and baseline data): CC-BY-SA 4.0
+  (see `CONTEXT-LICENSE`)
 
 ## Origin
 
-Promote from [nextain/naia-labs](https://github.com/nextain/naia-labs) R&D ground.
-Production: [naia-agent](https://github.com/nextain/naia-agent), [naia-model-infra](https://github.com/nextain/naia-model-infra).
+Promoted from [nextain/naia-labs](https://github.com/nextain/naia-labs) R&D
+ground. Production runtime: [naia-agent](https://github.com/nextain/naia-agent),
+[naia-model-infra](https://github.com/nextain/naia-model-infra).
 
 ## Contributing
 
-See `CONTRIBUTING.md`. Add multilingual mirror in `.users/{lang}/`.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Mirror any new document under
+`.users/{lang}/`.
 
-cf [Naia repo structure standard](https://github.com/nextain/naia-adk/.agents/context/repo-structure-standard.yaml)
+cf. [Naia repo structure standard](https://github.com/nextain/naia-adk/.agents/context/repo-structure-standard.yaml)
